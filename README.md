@@ -13,7 +13,7 @@ My offensive-security learning journey — methodology notes and hands-on CTF ch
 
 | # | Name | Type | Difficulty | Status |
 |---|------|------|-----------|--------|
-| 01 | [SecureVault](ctfs/web-beginner-01/) | Web | Beginner | 🚧 in progress |
+| 01 | [SecureVault](ctfs/web-beginner-01/) | Web | Beginner | ✅ solved |
 
 ## 🏃 Running a CTF
 
@@ -21,12 +21,16 @@ Each CTF folder has its own README. In general (Docker Desktop):
 
 ```bash
 cd ctfs/<challenge>
-docker compose up -d       # start → http://localhost:8080
+docker compose up -d       # start → http://localhost:8081
 docker compose stop        # stop
 docker compose down        # remove / reset
 ```
 
 > ⚠️ Everything here targets local, self-owned lab machines only.
+
+> 🔌 **Port convention:** CTF apps publish on host port **8081** (`8081:5000` in
+> `docker-compose.yml`). Port **8080** is reserved for Burp Suite's default proxy
+> listener, so the two never collide when proxying lab traffic.
 
 ---
 *Notes are a snapshot copied from my Obsidian vault — re-copy from `red-team-guide/`'s

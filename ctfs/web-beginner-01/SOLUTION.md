@@ -45,7 +45,7 @@ enumerate them first.
 - Log in as `guest` / `guest`. The server sets a plain (unsigned) cookie `role=user`.
 - Visit `/admin` → "Access denied. Your role is: user".
 - Edit the cookie value `role` from `user` to `admin` (DevTools → Application →
-  Cookies, or `curl --cookie "role=admin" http://localhost:8080/admin`).
+  Cookies, or `curl --cookie "role=admin" http://localhost:8081/admin`).
 - Reload `/admin` → **Flag 2**.
 
 **Lesson:** never trust client-controlled data (cookies/headers/hidden fields) for

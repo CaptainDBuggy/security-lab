@@ -7,9 +7,9 @@ services:
     image: ctf-web-01
     container_name: securevault-ctf
     ports:
-      - "8080:5000"
+      - "8081:5000"
     restart: "no"          # manual control — start/stop from Docker Desktop
     labels:
       com.ctf.name: "SecureVault Beginner Web CTF"
       com.ctf.difficulty: "beginner"
-      com.ctf.url: "http://localhost:8080"
+      com.ctf.url: "http://localhost:8081"

@@ -9,7 +9,7 @@ This runs on **Docker Desktop** as a Compose project named **`securevault-ctf`**
 
 **Easiest — the GUI:** open Docker Desktop → **Containers** → find **securevault-ctf** →
 use the ▶ / ⏹ buttons to start and stop it whenever you want. Click the container
-to see logs, or the `8080:5000` port link to open it in your browser.
+to see logs, or the `8081:5000` port link to open it in your browser.
 
 **Or the terminal:**
 
@@ -22,7 +22,7 @@ docker compose logs -f        # watch server logs
 docker compose down           # remove entirely (fresh reset next 'up')
 ```
 
-Open http://localhost:8080. Stopping/starting keeps your state; `down` then `up`
+Open http://localhost:8081. Stopping/starting keeps your state; `down` then `up`
 gives a clean reset.
 
 ## The mission
@@ -47,4 +47,4 @@ They get progressively harder and each teaches a different core web skill:
 - `curl` — inspect raw requests/responses
 - Burp Suite (optional) — intercept and tamper requests
 
-Good luck. Start at http://localhost:8080 and tell me what you notice.
+Good luck. Start at http://localhost:8081 and tell me what you notice.
