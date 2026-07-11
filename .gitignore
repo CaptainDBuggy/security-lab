@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# Runtime / DB artifacts
+*.db
+vault.db
+
+# macOS
+.DS_Store
+
+# Obsidian workspace state (if notes vault ever added)
+.obsidian/workspace*.json
