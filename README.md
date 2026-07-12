@@ -14,6 +14,7 @@ My offensive-security learning journey — methodology notes and hands-on CTF ch
 | # | Name | Type | Difficulty | Status |
 |---|------|------|-----------|--------|
 | 01 | [SecureVault](ctfs/web-beginner-01/) | Web | Beginner | ✅ solved |
+| 02 | [OrgHub](ctfs/web-intermediate-02/) | Web | Intermediate | ✅ solved |
 
 ## 🏃 Running a CTF
 
