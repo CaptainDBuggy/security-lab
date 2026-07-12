@@ -1,0 +1,15 @@
+# Project appears in Docker Desktop as "orghub-ctf"
+name: orghub-ctf
+
+services:
+  orghub:
+    build: .
+    image: ctf-web-02
+    container_name: orghub-ctf
+    ports:
+      - "8081:5000"       # host 8081 (Burp keeps its default 8080)
+    restart: "no"          # manual control — start/stop from Docker Desktop
+    labels:
+      com.ctf.name: "OrgHub Intermediate Web CTF"
+      com.ctf.difficulty: "intermediate"
+      com.ctf.url: "http://localhost:8081"
