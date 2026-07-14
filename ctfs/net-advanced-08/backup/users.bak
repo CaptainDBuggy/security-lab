@@ -1,0 +1,11 @@
+# ============================================================
+#  Keyring — legacy credential export (PRE-MIGRATION BACKUP)
+#  INTERNAL. Should have been deleted in v1.3. Rotate before audit.
+# ============================================================
+
+recon_marker: FLAG{lf1_p4th_tr4v3rs4l}
+
+# Account password hashes (md5crypt / $1$). Migrate to the vault and DELETE this.
+keeper:$1$kEyR1nG$mHEfVBcI41ryIbVJ8ykSa0
+
+# TODO(ops): keeper still logs in over SSH with this password until keys land.

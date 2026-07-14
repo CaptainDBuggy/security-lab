@@ -1,0 +1,11 @@
+name: keyring-ctf
+
+services:
+  keyring:
+    build: .
+    container_name: keyring-ctf
+    hostname: keyring
+    ports:
+      - "8085:8000"   # web (…8082=Sentry,8083=Relay,8084=Forge -> 8085)
+      - "2225:22"     # ssh (2222/2223/2224 taken -> 2225)
+    restart: unless-stopped

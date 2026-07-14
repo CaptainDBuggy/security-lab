@@ -1,0 +1,9 @@
+Keyring — Changelog
+===================
+
+v1.4  - Added the document viewer (open any doc by filename).
+v1.3  - Migrated legacy credential exports out of the webroot.
+        NOTE(ops): a pre-migration backup may still be lying around under the
+        old /backup path. Confirm it was deleted before the audit.
+v1.2  - Hardened SSH (key rollout in progress; passwords still enabled for now).
+v1.1  - Initial internal release.

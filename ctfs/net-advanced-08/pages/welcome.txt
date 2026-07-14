@@ -1,0 +1,10 @@
+Welcome to Keyring
+==================
+
+Keyring is our internal secrets-management and documentation portal. Use the
+viewer above to open any team document by name.
+
+Available docs: welcome.txt, changelog.txt
+
+If a document 404s, check the exact filename with the ops team. The viewer reads
+straight from the docs directory on this node.
