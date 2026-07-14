@@ -1,0 +1,3 @@
+# Relay node health probe — runs as root every minute.
+# (cron.d format: the 6th field is the USER the job runs as.)
+* * * * * root /opt/relay/healthcheck.sh

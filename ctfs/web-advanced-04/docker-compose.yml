@@ -1,0 +1,15 @@
+# Project appears in Docker Desktop as "linkpeek-ctf"
+name: linkpeek-ctf
+
+services:
+  linkpeek:
+    build: .
+    image: ctf-web-04
+    container_name: linkpeek-ctf
+    ports:
+      - "8081:5000"       # host 8081 (Burp keeps its default 8080)
+    restart: "no"          # manual control — start/stop from Docker Desktop
+    labels:
+      com.ctf.name: "LinkPeek Advanced Web CTF"
+      com.ctf.difficulty: "advanced"
+      com.ctf.url: "http://localhost:8081"

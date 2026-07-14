@@ -1,0 +1,10 @@
+name: sentry-ctf
+
+services:
+  sentry:
+    build: .
+    container_name: sentry-ctf
+    ports:
+      - "8082:80"     # web app  (8080=Burp, 8081=LinkPeek, so this box takes 8082)
+      - "2222:22"     # ssh
+    restart: unless-stopped

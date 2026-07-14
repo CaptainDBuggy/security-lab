@@ -1,0 +1,18 @@
+# Project appears in Docker Desktop as "postpilot-ctf"
+name: postpilot-ctf
+
+services:
+  postpilot:
+    build: .
+    image: ctf-web-03
+    container_name: postpilot-ctf
+    ports:
+      - "8081:5000"       # host 8081 (Burp keeps its default 8080)
+    environment:
+      # Stage 3 target — the secret an attacker loots after gaining RCE.
+      POSTPILOT_ROOT_SECRET: "FLAG{rc3_3nv_var_l00t3d_gg}"
+    restart: "no"          # manual control — start/stop from Docker Desktop
+    labels:
+      com.ctf.name: "PostPilot Advanced Web CTF"
+      com.ctf.difficulty: "advanced"
+      com.ctf.url: "http://localhost:8081"
