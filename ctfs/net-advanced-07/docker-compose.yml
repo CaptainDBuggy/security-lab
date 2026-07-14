@@ -1,0 +1,11 @@
+name: forge-ctf
+
+services:
+  forge:
+    build: .
+    container_name: forge-ctf
+    hostname: forge
+    ports:
+      - "8084:8000"   # web app (8080=Burp,8081=LinkPeek,8082=Sentry,8083=Relay -> 8084)
+      - "2224:22"     # ssh    (2222=Sentry, 2223=Relay -> 2224)
+    restart: unless-stopped
