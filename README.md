@@ -19,7 +19,7 @@ My offensive-security learning journey — methodology notes and hands-on CTF ch
 | 04 | [LinkPeek](ctfs/web-advanced-04/) | Web | Advanced | ✅ solved |
 | 05 | [Sentry](ctfs/net-intermediate-05/) | Network / Linux | Intermediate | ✅ solved |
 | 06 | [Relay](ctfs/net-intermediate-06/) | Network / Linux | Intermediate+ | ✅ solved |
-| 07 | [Forge](ctfs/net-advanced-07/) | Network / Linux | Advanced | 🆕 ready |
+| 07 | [Forge](ctfs/net-advanced-07/) | Network / Linux | Advanced | ✅ solved |
 
 ## 🏃 Running a CTF
 
