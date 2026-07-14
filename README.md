@@ -20,7 +20,7 @@ My offensive-security learning journey — methodology notes and hands-on CTF ch
 | 05 | [Sentry](ctfs/net-intermediate-05/) | Network / Linux | Intermediate | ✅ solved |
 | 06 | [Relay](ctfs/net-intermediate-06/) | Network / Linux | Intermediate+ | ✅ solved |
 | 07 | [Forge](ctfs/net-advanced-07/) | Network / Linux | Advanced | ✅ solved |
-| 08 | [Keyring](ctfs/net-advanced-08/) | Network / Linux | Advanced | 🆕 ready |
+| 08 | [Keyring](ctfs/net-advanced-08/) | Network / Linux | Advanced | ✅ solved |
 
 ## 🏃 Running a CTF
 
