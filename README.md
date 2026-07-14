@@ -21,6 +21,10 @@ My offensive-security learning journey — methodology notes and hands-on CTF ch
 | 06 | [Relay](ctfs/net-intermediate-06/) | Network / Linux | Intermediate+ | ✅ solved |
 | 07 | [Forge](ctfs/net-advanced-07/) | Network / Linux | Advanced | ✅ solved |
 | 08 | [Keyring](ctfs/net-advanced-08/) | Network / Linux | Advanced | ✅ solved |
+| 09 | [Bookworm](ctfs/web-intermediate-09/) | Web | Intermediate | 🆕 ready |
+
+Outside challenges (boxes from elsewhere) live under
+[`ctfs/outside-challenges/`](ctfs/outside-challenges/).
 
 ## 🏃 Running a CTF
 
