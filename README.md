@@ -18,6 +18,7 @@ My offensive-security learning journey — methodology notes and hands-on CTF ch
 | 03 | [PostPilot](ctfs/web-advanced-03/) | Web | Advanced | ✅ solved |
 | 04 | [LinkPeek](ctfs/web-advanced-04/) | Web | Advanced | ✅ solved |
 | 05 | [Sentry](ctfs/net-intermediate-05/) | Network / Linux | Intermediate | ✅ solved |
+| 06 | [Relay](ctfs/net-intermediate-06/) | Network / Linux | Intermediate+ | 🆕 ready |
 
 ## 🏃 Running a CTF
 

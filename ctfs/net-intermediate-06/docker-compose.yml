@@ -1,0 +1,11 @@
+name: relay-ctf
+
+services:
+  relay:
+    build: .
+    container_name: relay-ctf
+    hostname: relay
+    ports:
+      - "8083:80"     # web app  (8080=Burp, 8081=LinkPeek, 8082=Sentry -> 8083)
+      - "2223:22"     # ssh      (2222=Sentry -> 2223)
+    restart: unless-stopped
