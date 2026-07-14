@@ -227,23 +227,21 @@ def search():
 def book():
     bid = request.args.get("id", "1")
     con = get_db(BOOKS_DB)
-    # --- VULN #3: numeric id concatenated -> boolean-blind injectable ---
-    sql = ("SELECT title, author, year FROM books "
-           "WHERE id = %s" % bid)
+    # --- VULN #3: numeric id concatenated -> boolean-blind injectable.
+    #     We fetch a row but NEVER render any of its columns: the page only reveals
+    #     whether a row matched (availability). That closes any UNION/reflection
+    #     shortcut — extracting data here must be done blind, one boolean at a time. ---
+    sql = ("SELECT title FROM books WHERE id = %s" % bid)
     try:
         row = con.execute(sql).fetchone()
     except sqlite3.Error as e:
         con.close()
         return page(f'<div class="card err">SQL error: {e}</div>')
     con.close()
-    if row:
-        # Only whether a row matched is observable — no injected data is reflected.
-        return page(
-            f'<div class="card"><h3>{row["title"]}</h3>'
-            f'<p>by {row["author"]} &middot; {row["year"]}</p>'
-            '<p class="muted">✅ This title is in our catalog.</p></div>'
-        )
-    return page('<div class="card"><p>📕 No such book in the catalog.</p></div>')
+    verdict = ("✅ This title is in our catalog."
+               if row else "📕 No such book in the catalog.")
+    return page(f'<div class="card"><h3>Catalog availability</h3>'
+                f'<p class="muted">{verdict}</p></div>')
 
 
 if __name__ == "__main__":
