@@ -1,0 +1,15 @@
+# Project appears in Docker Desktop as "reviewly-ctf"
+name: reviewly-ctf
+
+services:
+  reviewly:
+    build: .
+    image: ctf-web-11
+    container_name: reviewly-ctf
+    ports:
+      - "8088:5000"       # host 8088 (Burp keeps 8080; 8081-8087 taken by earlier CTFs)
+    restart: "no"          # manual control — start/stop from Docker Desktop
+    labels:
+      com.ctf.name: "Reviewly Intermediate Web CTF"
+      com.ctf.difficulty: "intermediate"
+      com.ctf.url: "http://localhost:8088"

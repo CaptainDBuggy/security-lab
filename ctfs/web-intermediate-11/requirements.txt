@@ -1,0 +1,3 @@
+# Playwright + Chromium come from the base image; we only add the web framework.
+Flask==3.0.3
+playwright==1.48.0

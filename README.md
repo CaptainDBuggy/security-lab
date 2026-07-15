@@ -23,6 +23,7 @@ My offensive-security learning journey — methodology notes and hands-on CTF ch
 | 08 | [Keyring](ctfs/net-advanced-08/) | Network / Linux | Advanced | ✅ solved |
 | 09 | [Bookworm](ctfs/web-intermediate-09/) | Web | Intermediate | ✅ solved |
 | 10 | [Postboard](ctfs/web-intermediate-10/) | Web | Intermediate | ✅ solved |
+| 11 | [Reviewly](ctfs/web-intermediate-11/) | Web | Intermediate | ⬜ open |
 
 Outside challenges (boxes from elsewhere) live under
 [`ctfs/outside-challenges/`](ctfs/outside-challenges/).
