@@ -1,0 +1,15 @@
+# Project appears in Docker Desktop as "postboard-ctf"
+name: postboard-ctf
+
+services:
+  postboard:
+    build: .
+    image: ctf-web-10
+    container_name: postboard-ctf
+    ports:
+      - "8087:5000"       # host 8087 (Burp keeps 8080; 8081-8086 taken by earlier CTFs)
+    restart: "no"          # manual control — start/stop from Docker Desktop
+    labels:
+      com.ctf.name: "Postboard Intermediate Web CTF"
+      com.ctf.difficulty: "intermediate"
+      com.ctf.url: "http://localhost:8087"

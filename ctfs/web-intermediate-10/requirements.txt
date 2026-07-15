@@ -1,0 +1,4 @@
+# Chromium itself is bundled in the base image (/ms-playwright). We add the web
+# framework plus the playwright pip package pinned to match the bundled browser.
+Flask==3.0.3
+playwright==1.48.0
