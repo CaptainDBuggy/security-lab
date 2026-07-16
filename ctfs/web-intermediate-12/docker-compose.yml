@@ -1,0 +1,15 @@
+# Project appears in Docker Desktop as "ledgr-ctf"
+name: ledgr-ctf
+
+services:
+  ledgr:
+    build: .
+    image: ctf-web-12
+    container_name: ledgr-ctf
+    ports:
+      - "8089:5000"       # host 8089 (Burp keeps its default 8080; 8081-8088 taken)
+    restart: "no"          # manual control — start/stop from Docker Desktop
+    labels:
+      com.ctf.name: "Ledgr Intermediate Web CTF"
+      com.ctf.difficulty: "intermediate"
+      com.ctf.url: "http://localhost:8089"
