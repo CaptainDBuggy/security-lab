@@ -1,0 +1,15 @@
+# Project appears in Docker Desktop as "loglet-ctf"
+name: loglet-ctf
+
+services:
+  loglet:
+    build: .
+    image: ctf-web-17
+    container_name: loglet-ctf
+    ports:
+      - "8094:5000"       # host 8094 (Burp keeps 8080; 8081-8093 are earlier CTFs)
+    restart: "no"          # manual control — start/stop from Docker Desktop
+    labels:
+      com.ctf.name: "Loglet Intermediate Web CTF"
+      com.ctf.difficulty: "intermediate"
+      com.ctf.url: "http://localhost:8094"
