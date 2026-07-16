@@ -1,0 +1,15 @@
+# Project appears in Docker Desktop as "cogwheel-ctf"
+name: cogwheel-ctf
+
+services:
+  cogwheel:
+    build: .
+    image: ctf-web-16
+    container_name: cogwheel-ctf
+    ports:
+      - "8093:5000"       # host 8093 (Burp keeps 8080; 8081-8092 are earlier CTFs)
+    restart: "no"          # manual control — start/stop from Docker Desktop
+    labels:
+      com.ctf.name: "Cogwheel CI Intermediate Web CTF"
+      com.ctf.difficulty: "intermediate"
+      com.ctf.url: "http://localhost:8093"
