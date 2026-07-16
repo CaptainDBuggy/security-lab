@@ -26,6 +26,7 @@ My offensive-security learning journey — methodology notes and hands-on CTF ch
 | 11 | [Reviewly](ctfs/web-intermediate-11/) | Web | Intermediate | ✅ solved |
 | 12 | [Ledgr](ctfs/web-intermediate-12/) | Web | Intermediate | ✅ solved |
 | 13 | [Sesame](ctfs/web-intermediate-13/) | Web | Intermediate | ✅ solved |
+| 14 | [NetProbe](ctfs/web-intermediate-14/) | Web | Intermediate | ⬜ open |
 
 Outside challenges (boxes from elsewhere) live under
 [`ctfs/outside-challenges/`](ctfs/outside-challenges/).

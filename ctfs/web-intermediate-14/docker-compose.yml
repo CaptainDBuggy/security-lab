@@ -1,0 +1,15 @@
+# Project appears in Docker Desktop as "netprobe-ctf"
+name: netprobe-ctf
+
+services:
+  netprobe:
+    build: .
+    image: ctf-web-14
+    container_name: netprobe-ctf
+    ports:
+      - "8091:5000"       # host 8091 (Burp keeps its default 8080; 8081-8090 taken)
+    restart: "no"          # manual control — start/stop from Docker Desktop
+    labels:
+      com.ctf.name: "NetProbe Intermediate Web CTF"
+      com.ctf.difficulty: "intermediate"
+      com.ctf.url: "http://localhost:8091"
