@@ -1,0 +1,44 @@
+<%- include('partials/head', { title: title }) %>
+<%- include('partials/topbar') %>
+<div class="wrap">
+
+  <% if (flash) { %>
+    <div class="flash <%= ok ? 'ok' : '' %>"><%= flash %></div>
+  <% } %>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start">
+
+    <!-- balance -->
+    <div class="panel center">
+      <h3>&gt; YOUR RIG</h3>
+      <p class="muted">@<%= me.handle %></p>
+      <p class="muted" style="margin-bottom:4px">BALANCE</p>
+      <p class="price" style="font-size:2.6rem">€$ <%= me.eddies.toLocaleString() %></p>
+      <p class="muted" style="font-size:12px">rep <%= (me.rep||0).toLocaleString() %></p>
+    </div>
+
+    <!-- wire eddies -->
+    <div class="panel">
+      <h3>&gt; WIRE EDDIES</h3>
+      <p class="dim">Send eddies to another runner. Instant, irreversible, no questions.</p>
+      <form method="POST" action="/transfer" id="wire-form">
+        <label>TO (runner handle)</label>
+        <input type="text" name="to" placeholder="v3ndetta" autocomplete="off">
+        <label>AMOUNT (€$)</label>
+        <input type="number" name="amount" placeholder="0" step="1">
+        <div style="margin-top:14px">
+          <!-- Button is disabled when you're broke. NOTE: this is enforced HERE,
+               in the browser, and nowhere else. -->
+          <button class="btn" type="submit" id="send-btn" <%= me.eddies > 0 ? '' : 'disabled' %>>SEND</button>
+        </div>
+      </form>
+      <% if (me.eddies <= 0) { %>
+        <p class="muted" style="font-size:12px;margin-top:10px">
+          &gt; you're flat broke. SEND is locked until you've got eddies to move.
+        </p>
+      <% } %>
+    </div>
+
+  </div>
+</div>
+<%- include('partials/foot') %>

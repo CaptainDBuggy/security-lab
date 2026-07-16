@@ -1,0 +1,125 @@
+<%- include('partials/head', { title: title }) %>
+<div class="topbar" style="border-color:var(--red)">
+  <span class="brand glitch" data-text="OPERATOR CONSOLE" style="color:var(--red)">OPERATOR CONSOLE</span>
+  <nav>
+    <span class="muted">0P3R4T0R: <span class="ok"><%= handle %></span></span>
+    <a href="/market">MARKET</a>
+    <a href="/sysop/logout">LOG OUT</a>
+  </nav>
+</div>
+<div class="wrap">
+
+  <!-- dashboard tiles -->
+  <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:16px">
+    <div class="panel center" style="padding:12px"><div class="muted" style="font-size:11px">RUNNERS</div><div class="ok big"><%= runners %></div></div>
+    <div class="panel center" style="padding:12px"><div class="muted" style="font-size:11px">WARES LIVE</div><div class="ok big"><%= wares %></div></div>
+    <div class="panel center" style="padding:12px"><div class="muted" style="font-size:11px">ESCROW €$</div><div class="warn big"><%= escrow.toLocaleString() %></div></div>
+    <div class="panel center" style="padding:12px"><div class="muted" style="font-size:11px">RELAY NODES</div><div class="ok big">5<span class="muted" style="font-size:0.7rem">/6</span></div></div>
+    <div class="panel center" style="padding:12px"><div class="muted" style="font-size:11px">APPROVALS</div><div class="hot big"><%= approvals.length %></div></div>
+    <div class="panel center" style="padding:12px"><div class="muted" style="font-size:11px">TRACE ALERTS</div><div class="bad big">17 ▲</div></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:start">
+
+    <!-- LEFT -->
+    <div>
+      <!-- RELAY MONITOR -->
+      <div class="panel" style="border-color:var(--cyan)">
+        <h3 style="color:var(--cyan)">&gt; RELAY MONITOR</h3>
+        <p class="dim">Probe a mesh node to confirm it's still breathing. Pick a known
+        relay or punch in an address.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0">
+          <button class="btn cyan preset" data-host="10.13.37.21" style="font-size:12px;padding:6px 12px">MIRROR-01 / tokyo</button>
+          <button class="btn cyan preset" data-host="10.13.37.22" style="font-size:12px;padding:6px 12px">MIRROR-02 / night-city</button>
+          <button class="btn cyan preset" data-host="relay-eu.blkwall.i2p" style="font-size:12px;padding:6px 12px">RELAY-EU</button>
+          <button class="btn cyan preset" data-host="gw.blkwall.onion" style="font-size:12px;padding:6px 12px">ONION-GW</button>
+          <button class="btn cyan preset" data-host="10.13.37.99" style="font-size:12px;padding:6px 12px">C2-PRIMARY</button>
+        </div>
+        <label>NODE ADDRESS</label>
+        <input type="text" id="host" placeholder="10.13.37.21" autocomplete="off">
+        <div style="margin-top:10px"><button class="btn" id="probe-btn">PROBE</button></div>
+        <div class="term" id="probe-out" style="margin-top:12px">&gt; awaiting probe...</div>
+      </div>
+
+      <!-- RUNNER MANAGEMENT -->
+      <div class="panel">
+        <h3>&gt; RUNNER MANAGEMENT</h3>
+        <table>
+          <tr><th>HANDLE</th><th>ROLE</th><th style="text-align:right">EDDIES</th><th style="text-align:right">REP</th><th></th></tr>
+          <% roster.forEach(function(u){ %>
+            <tr>
+              <td><%= u.role === 'admin' ? '<span class="bad">'+u.handle+'</span>' : '@'+u.handle %></td>
+              <td class="muted"><%= u.role %></td>
+              <td class="warn" style="text-align:right"><%= (u.eddies||0).toLocaleString() %></td>
+              <td class="muted" style="text-align:right"><%= (u.rep||0).toLocaleString() %></td>
+              <td style="text-align:right"><span class="muted" style="font-size:11px">[ban] [rep]</span></td>
+            </tr>
+          <% }); %>
+        </table>
+        <p class="muted" style="font-size:11px;margin-top:6px">note: v3ndetta's balance is looking light. escrow desync? investigate.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div>
+      <div class="panel">
+        <h3>&gt; APPROVAL QUEUE</h3>
+        <% approvals.forEach(function(a){ %>
+          <div class="rev">
+            <div><span class="ok"><%= a.name %></span></div>
+            <div class="muted" style="font-size:12px">@<%= a.seller %> · <span class="warn"><%= a.flag %></span></div>
+          </div>
+        <% }); %>
+      </div>
+
+      <div class="panel">
+        <h3>&gt; ESCROW / PAYOUTS</h3>
+        <table>
+          <% payouts.forEach(function(p){ %>
+            <tr><td>@<%= p.to %></td><td class="muted" style="font-size:11px"><%= p.note %></td><td class="warn" style="text-align:right">€$ <%= p.amount %></td></tr>
+          <% }); %>
+        </table>
+      </div>
+
+      <div class="panel" style="border-color:var(--red)">
+        <h3 class="bad">&gt; KILLSWITCH</h3>
+        <p class="dim" style="font-size:12px">Burn the whole market. Wipe every node, every
+        record, every trace. There is no undo.</p>
+        <button class="btn danger" id="purge" style="width:100%">PURGE MARKET</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  (function(){
+    var host=document.getElementById('host'), out=document.getElementById('probe-out'),
+        btn=document.getElementById('probe-btn');
+    // presets auto-fill the box
+    document.querySelectorAll('.preset').forEach(function(b){
+      b.addEventListener('click', function(){ host.value=b.getAttribute('data-host'); host.focus(); });
+    });
+    async function probe(){
+      var h=host.value.trim();
+      if(!h){ out.textContent='> enter a node address.'; return; }
+      out.textContent='> probing '+h+' ...';
+      try{
+        var r=await fetch('/sysop/probe',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
+          body:'host='+encodeURIComponent(h),credentials:'same-origin'});
+        var d=await r.json();
+        out.textContent='$ ping -c 1 -W 2 '+h+'\n\n'+d.output;
+      }catch(e){ out.textContent='> probe failed.'; }
+    }
+    btn.addEventListener('click', probe);
+    host.addEventListener('keydown', function(e){ if(e.key==='Enter') probe(); });
+
+    // killswitch — all bark, no bite
+    document.getElementById('purge').addEventListener('click', function(){
+      if(confirm('PURGE THE ENTIRE MARKET? This cannot be undone.')){
+        alert('PURGE ABORTED :: dead-man switch requires second operator key.');
+      }
+    });
+  })();
+</script>
+<%- include('partials/foot') %>

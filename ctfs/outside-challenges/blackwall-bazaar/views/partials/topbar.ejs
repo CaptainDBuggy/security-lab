@@ -1,0 +1,9 @@
+<div class="topbar">
+  <span class="brand glitch" data-text="BLACKWALL BAZAAR">BLACKWALL BAZAAR</span>
+  <nav>
+    <a href="/market">MARKET</a>
+    <a href="/rig">YOUR RIG</a>
+    <% if (me) { %><span class="eddies">€$ <%= me.eddies.toLocaleString() %></span><% } %>
+    <a href="/logout">JACK OUT</a>
+  </nav>
+</div>

@@ -1,0 +1,24 @@
+<%- include('partials/head', { title: 'OPERATOR CONSOLE // locked' }) %>
+<div class="wrap">
+  <div class="center" style="margin-top:9vh">
+    <h1 class="glitch" data-text="OPERATOR CONSOLE" style="font-size:2.2rem;color:var(--red)">OPERATOR CONSOLE</h1>
+    <p class="bad">// restricted // authorized operators only //</p>
+  </div>
+
+  <div class="panel" style="max-width:440px;margin:24px auto;border-color:var(--red)">
+    <% if (error) { %><div class="flash"><%= error %></div><% } %>
+    <p class="dim">This is the back office. If you're seeing this and you're not the
+    operator, the ICE already has your face.</p>
+    <form method="POST" action="/sysop/login">
+      <label>OPERATOR HANDLE</label>
+      <input type="text" name="handle" autocomplete="off" required autofocus>
+      <label>MASTER PASSPHRASE</label>
+      <input type="password" name="password" required>
+      <div style="margin-top:16px"><button class="btn danger" type="submit">AUTHENTICATE</button></div>
+    </form>
+    <hr>
+    <p class="muted" style="font-size:11px">&gt; failed attempts are logged and traced.<br>&gt; INTRUSION COUNTERMEASURES: armed</p>
+  </div>
+  <p class="center"><a href="/market" class="muted" style="font-size:12px">&lt; back to the floor</a></p>
+</div>
+<%- include('partials/foot') %>

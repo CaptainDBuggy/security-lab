@@ -1,0 +1,96 @@
+<%- include('partials/head', { title: title }) %>
+<%- include('partials/topbar') %>
+<div class="wrap">
+
+  <!-- live score feed -->
+  <div class="ticker" style="margin-bottom:16px">
+    <span><% feed.forEach(function(f){ %>&gt;&gt; <b><%= f %></b> &nbsp;&nbsp;·&nbsp;&nbsp; <% }); %></span>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 300px;gap:18px;align-items:start">
+
+    <!-- WARES -->
+    <div>
+      <div class="panel">
+        <h2>&gt; THE FLOOR</h2>
+        <p class="dim">Everything here fell off the back of a corpo truck. No refunds. No receipts. No trace.</p>
+      </div>
+      <div class="grid">
+        <% products.forEach(function(w){ %>
+          <a href="/ware/<%= w._id %>" class="ware" style="display:block">
+            <div class="name"><%= w.name %></div>
+            <div class="seller">@<%= w.seller %></div>
+            <div class="blurb"><%= w.blurb %></div>
+            <div class="price">€$ <%= w.price.toLocaleString() %></div>
+          </a>
+        <% }); %>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div>
+      <!-- find a runner -->
+      <div class="panel">
+        <h3>&gt; FIND A RUNNER</h3>
+        <input type="text" id="runner-q" placeholder="handle" autocomplete="off">
+        <div style="margin-top:10px"><button class="btn cyan" id="runner-go">SEARCH</button></div>
+        <div id="runner-results" class="muted" style="margin-top:12px;font-size:13px"></div>
+      </div>
+
+      <!-- leaderboard -->
+      <div class="panel">
+        <h3>&gt; TOP RUNNERS</h3>
+        <table>
+          <% leaderboard.forEach(function(r, i){ %>
+            <tr>
+              <td class="muted"><%= i+1 %></td>
+              <td><a href="/runner/<%= r.handle %>">@<%= r.handle %></a></td>
+              <td class="hot" style="text-align:right"><%= r.rep.toLocaleString() %></td>
+            </tr>
+          <% }); %>
+        </table>
+        <p class="muted" style="font-size:11px;margin-top:8px">rep = reputation. eddies are nobody's business.</p>
+      </div>
+
+      <!-- shoutbox -->
+      <div class="panel">
+        <h3>&gt; SHOUTBOX</h3>
+        <div class="reviews">
+          <% shout.forEach(function(s){ %>
+            <div class="rev"><span class="who">@<%= s.who %>:</span> <span class="dim"><%= s.text %></span></div>
+          <% }); %>
+        </div>
+        <div class="muted" style="font-size:11px"><span id="op-online">0</span> operators online</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  (function(){
+    var o=document.getElementById('op-online');
+    function tick(){ o.textContent = 40 + Math.floor(Math.random()*17); }
+    tick(); setInterval(tick, 3200);
+
+    // FIND A RUNNER — hits /api/runners. The UI only renders handle + rep...
+    var q=document.getElementById('runner-q'), go=document.getElementById('runner-go'),
+        out=document.getElementById('runner-results');
+    async function search(){
+      var v=q.value.trim();
+      if(!v){ out.textContent=''; return; }
+      out.textContent='searching...';
+      try{
+        var r=await fetch('/api/runners?q='+encodeURIComponent(v),{credentials:'same-origin'});
+        var d=await r.json();
+        if(!d.runners.length){ out.innerHTML='<span class="bad">no runner by that handle.</span>'; return; }
+        out.innerHTML = d.runners.map(function(u){
+          return '<div>@<a href="/runner/'+u.handle+'">'+u.handle+'</a> <span class="hot">rep '+(u.rep||0)+'</span></div>';
+        }).join('');
+      }catch(e){ out.innerHTML='<span class="bad">search failed.</span>'; }
+    }
+    go.addEventListener('click', search);
+    q.addEventListener('keydown', function(e){ if(e.key==='Enter') search(); });
+  })();
+</script>
+<%- include('partials/foot') %>

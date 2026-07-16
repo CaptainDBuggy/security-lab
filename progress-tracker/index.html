@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CTF Progress Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">▚</span>
+      <div>
+        <h1>CTF Progress Tracker</h1>
+        <p class="sub">security-lab · offensive-security curriculum</p>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <button id="addBtn" class="btn">+ Add CTF</button>
+      <button id="resetBtn" class="btn ghost" title="Reset to seed data">Reset</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="stats" class="stat-grid"></section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Exploits trained</h2>
+        <span class="muted" id="exploitsSub"></span>
+      </div>
+      <div id="exploits" class="exploits"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Challenges</h2>
+        <span class="muted" id="tableSub"></span>
+      </div>
+      <div class="table-wrap">
+        <table id="ctfTable">
+          <thead>
+            <tr>
+              <th>#</th><th>Name</th><th>Type</th><th>Difficulty</th>
+              <th>Exploits</th><th>Hints</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="ctfBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="addModal" class="modal hidden">
+    <div class="modal-card">
+      <h3>Add a challenge</h3>
+      <label>Name <input id="m_name" type="text" placeholder="e.g. ChainLink" /></label>
+      <label>Type
+        <select id="m_type">
+          <option>Web</option><option>Network / Linux</option>
+          <option>Active Directory</option><option>Hardware</option><option>Other</option>
+        </select>
+      </label>
+      <label>Difficulty
+        <select id="m_diff">
+          <option>Beginner</option><option>Intermediate</option><option>Advanced</option>
+        </select>
+      </label>
+      <label>Exploits / primitives (comma-separated)
+        <input id="m_prims" type="text" placeholder="e.g. IDOR, JWT, SSRF" />
+      </label>
+      <div class="modal-actions">
+        <button id="m_cancel" class="btn ghost">Cancel</button>
+        <button id="m_save" class="btn">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

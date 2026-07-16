@@ -1,0 +1,22 @@
+<%- include('partials/head', { title: title }) %>
+<%- include('partials/topbar') %>
+<div class="wrap">
+  <p><a href="/market" class="muted">&lt; back to the floor</a></p>
+
+  <div class="panel" style="max-width:640px;margin:20px auto">
+    <% if (error) { %>
+      <div class="flash"><%= error %></div>
+      <p class="dim">Come back with more eddies. Or take someone else's.</p>
+    <% } else { %>
+      <div class="flash ok">&gt;&gt; PAYMENT CLEARED. <%= ware.name %> is staged in your vault.</div>
+      <p class="dim">Your goods are waiting on the drop node. Pull them down before the
+      link rots:</p>
+      <p class="center" style="margin:18px 0">
+        <a href="<%= link %>" class="mono" style="font-size:1.05rem"><%= link %></a>
+      </p>
+      <p class="muted" style="font-size:12px">&gt; drop node: relay mesh // ephemeral<br>
+      &gt; the operator rotates this dir. don't go poking around in there.</p>
+    <% } %>
+  </div>
+</div>
+<%- include('partials/foot') %>

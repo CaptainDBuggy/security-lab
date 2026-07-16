@@ -1,0 +1,29 @@
+<%- include('partials/head', { title: 'BLACKWALL BAZAAR // carve a rig' }) %>
+<div class="wrap">
+  <div class="center" style="margin-top:8vh">
+    <h1 class="glitch" data-text="BLACKWALL BAZAAR" style="font-size:2.2rem">BLACKWALL BAZAAR</h1>
+  </div>
+
+  <div class="panel" style="max-width:520px;margin:24px auto">
+    <div class="flash ok">&gt;&gt; INVITE ACCEPTED. the gate is open. carve your rig.</div>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+      <div class="flash"><%= error %></div>
+    <% } %>
+
+    <form method="POST" action="/register">
+      <input type="hidden" name="invite" value="<%= invite %>">
+      <label>CODE</label>
+      <input type="text" value="<%= invite %>" disabled>
+      <label>PICK A HANDLE</label>
+      <input type="text" name="handle" placeholder="your runner name" autocomplete="off" required autofocus>
+      <label>SET A PASSPHRASE</label>
+      <input type="password" name="password" placeholder="••••••••" required>
+      <div style="margin-top:16px">
+        <button class="btn" type="submit">JACK IN NEW RIG</button>
+        <a href="/" class="muted" style="margin-left:14px;font-size:12px">&lt; back</a>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include('partials/foot') %>

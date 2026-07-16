@@ -1,0 +1,33 @@
+<%- include('partials/head', { title: title }) %>
+<%- include('partials/topbar') %>
+<div class="wrap">
+  <p><a href="/market" class="muted">&lt; back to the floor</a></p>
+
+  <div class="panel">
+    <h2 style="color:var(--green)">@<%= profile.handle %>
+      <% if (profile.role === 'admin') { %><span class="bad" style="font-size:0.8rem">[ SYSOP ]</span><% } %>
+    </h2>
+    <table style="max-width:360px">
+      <tr><td class="muted">REP</td><td class="hot"><%= (profile.rep || 0).toLocaleString() %></td></tr>
+      <tr><td class="muted">STATUS</td><td class="ok"><%= profile.role === 'admin' ? 'operator' : 'runner' %></td></tr>
+      <tr><td class="muted">JACKED IN SINCE</td><td class="dim"><%= new Date(profile.joined).toISOString().slice(0,10) %></td></tr>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h3>&gt; WARES ON THE FLOOR</h3>
+    <% if (!wares.length) { %>
+      <p class="muted">this runner isn't selling right now.</p>
+    <% } else { %>
+      <div class="grid">
+        <% wares.forEach(function(w){ %>
+          <a href="/ware/<%= w._id %>" class="ware" style="display:block">
+            <div class="name"><%= w.name %></div>
+            <div class="price">€$ <%= w.price.toLocaleString() %></div>
+          </a>
+        <% }); %>
+      </div>
+    <% } %>
+  </div>
+</div>
+<%- include('partials/foot') %>

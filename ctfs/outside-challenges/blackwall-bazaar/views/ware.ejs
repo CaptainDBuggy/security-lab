@@ -1,0 +1,38 @@
+<%- include('partials/head', { title: title }) %>
+<%- include('partials/topbar') %>
+<div class="wrap">
+  <p><a href="/market" class="muted">&lt; back to the floor</a></p>
+
+  <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start">
+    <div class="panel">
+      <h2 style="color:var(--green)"><%= ware.name %></h2>
+      <p class="seller">sold by <a href="/runner/<%= ware.seller %>">@<%= ware.seller %></a></p>
+      <p class="dim big"><%= ware.blurb %></p>
+      <hr>
+      <h3>&gt; REVIEWS</h3>
+      <div class="reviews">
+        <% if (!ware.reviews || !ware.reviews.length) { %>
+          <p class="muted">no rep left yet. be the first, or don't.</p>
+        <% } else { ware.reviews.forEach(function(r){ %>
+          <div class="rev">
+            <span class="who">@<%= r.who %></span>
+            <span class="warn"><% for(var i=0;i<r.stars;i++){ %>★<% } %><% for(var j=r.stars;j<5;j++){ %><span class="muted">★</span><% } %></span>
+            <div class="dim"><%= r.text %></div>
+          </div>
+        <% }); } %>
+      </div>
+    </div>
+
+    <div>
+      <div class="panel center">
+        <p class="muted">PRICE</p>
+        <p class="price big" style="font-size:1.8rem">€$ <%= ware.price.toLocaleString() %></p>
+        <form method="POST" action="/buy/<%= ware._id %>">
+          <button class="btn" type="submit" style="width:100%">KLEP IT</button>
+        </form>
+        <p class="muted" style="font-size:11px;margin-top:10px">delivered to your rig on payment. no refunds, no receipts.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('partials/foot') %>

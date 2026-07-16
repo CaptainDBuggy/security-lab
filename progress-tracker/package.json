@@ -1,0 +1,14 @@
+{
+  "name": "ctf-progress-tracker",
+  "version": "1.0.0",
+  "description": "Tracks security-lab CTF progress: solved count, hints per CTF, and exploits trained.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "buggy",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^31.7.7"
+  }
+}
