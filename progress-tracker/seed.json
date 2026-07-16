@@ -14,6 +14,6 @@
     { "id": 12, "name": "Ledgr",       "type": "Web",            "difficulty": "Intermediate", "status": "solved", "hints": 0, "primitives": ["Broken Access Control", "IDOR"] },
     { "id": 13, "name": "Sesame",      "type": "Web",            "difficulty": "Intermediate", "status": "solved", "hints": 3, "primitives": ["Broken Authentication", "JWT"] },
     { "id": 14, "name": "NetProbe",    "type": "Web",            "difficulty": "Intermediate", "status": "open",   "hints": 0, "primitives": ["Command Injection"] },
-    { "id": 15, "name": "Mailroom",    "type": "Web",            "difficulty": "Intermediate", "status": "open",   "hints": 0, "primitives": ["NoSQL Injection", "Mass Assignment", "Insecure Upload", "Path Traversal"] }
+    { "id": 15, "name": "Mailroom",    "type": "Web",            "difficulty": "Intermediate", "status": "solved", "hints": 2, "primitives": ["NoSQL Injection", "Mass Assignment", "Insecure Upload", "Path Traversal"] }
   ]
 }
