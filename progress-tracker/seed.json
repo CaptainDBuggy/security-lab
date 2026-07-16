@@ -1,0 +1,19 @@
+{
+  "ctfs": [
+    { "id": 1,  "name": "SecureVault", "type": "Web",            "difficulty": "Beginner",     "status": "solved", "hints": 0, "primitives": ["Recon", "Client-Side Trust", "SQL Injection"] },
+    { "id": 2,  "name": "OrgHub",      "type": "Web",            "difficulty": "Intermediate", "status": "solved", "hints": 0, "primitives": ["Broken Access Control"] },
+    { "id": 3,  "name": "PostPilot",   "type": "Web",            "difficulty": "Advanced",     "status": "solved", "hints": 0, "primitives": ["SSTI", "RCE"] },
+    { "id": 4,  "name": "LinkPeek",    "type": "Web",            "difficulty": "Advanced",     "status": "solved", "hints": 0, "primitives": ["SSRF"] },
+    { "id": 5,  "name": "Sentry",      "type": "Network / Linux","difficulty": "Intermediate", "status": "solved", "hints": 0, "primitives": ["Boot2root", "Linux Priv-Esc"] },
+    { "id": 6,  "name": "Relay",       "type": "Network / Linux","difficulty": "Intermediate", "status": "solved", "hints": 0, "primitives": ["Boot2root", "Cron Priv-Esc"] },
+    { "id": 7,  "name": "Forge",       "type": "Network / Linux","difficulty": "Advanced",     "status": "solved", "hints": 0, "primitives": ["Boot2root", "Pivoting"] },
+    { "id": 8,  "name": "Keyring",     "type": "Network / Linux","difficulty": "Advanced",     "status": "solved", "hints": 0, "primitives": ["LFI", "Hash Cracking", "Linux Capabilities"] },
+    { "id": 9,  "name": "Bookworm",    "type": "Web",            "difficulty": "Intermediate", "status": "solved", "hints": 0, "primitives": ["SQL Injection"] },
+    { "id": 10, "name": "Postboard",   "type": "Web",            "difficulty": "Intermediate", "status": "solved", "hints": 0, "primitives": ["XSS"] },
+    { "id": 11, "name": "Reviewly",    "type": "Web",            "difficulty": "Intermediate", "status": "solved", "hints": 2, "primitives": ["XSS"] },
+    { "id": 12, "name": "Ledgr",       "type": "Web",            "difficulty": "Intermediate", "status": "solved", "hints": 0, "primitives": ["Broken Access Control", "IDOR"] },
+    { "id": 13, "name": "Sesame",      "type": "Web",            "difficulty": "Intermediate", "status": "solved", "hints": 3, "primitives": ["Broken Authentication", "JWT"] },
+    { "id": 14, "name": "NetProbe",    "type": "Web",            "difficulty": "Intermediate", "status": "open",   "hints": 0, "primitives": ["Command Injection"] },
+    { "id": 15, "name": "Mailroom",    "type": "Web",            "difficulty": "Intermediate", "status": "open",   "hints": 0, "primitives": ["NoSQL Injection", "Mass Assignment", "Insecure Upload", "Path Traversal"] }
+  ]
+}

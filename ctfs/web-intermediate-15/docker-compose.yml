@@ -1,0 +1,15 @@
+# Project appears in Docker Desktop as "mailroom-ctf"
+name: mailroom-ctf
+
+services:
+  mailroom:
+    build: .
+    image: ctf-web-15
+    container_name: mailroom-ctf
+    ports:
+      - "8092:5000"       # host 8092 (Burp keeps 8080; 8081-8091 are earlier CTFs)
+    restart: "no"          # manual control — start/stop from Docker Desktop
+    labels:
+      com.ctf.name: "Mailroom Intermediate Web CTF"
+      com.ctf.difficulty: "intermediate"
+      com.ctf.url: "http://localhost:8092"
