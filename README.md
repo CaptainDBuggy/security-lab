@@ -26,7 +26,7 @@ My offensive-security learning journey — methodology notes and hands-on CTF ch
 | 11 | [Reviewly](ctfs/web-intermediate-11/) | Web | Intermediate | ✅ solved |
 | 12 | [Ledgr](ctfs/web-intermediate-12/) | Web | Intermediate | ✅ solved |
 | 13 | [Sesame](ctfs/web-intermediate-13/) | Web | Intermediate | ✅ solved |
-| 14 | [NetProbe](ctfs/web-intermediate-14/) | Web | Intermediate | ⬜ open |
+| 14 | [NetProbe](ctfs/web-intermediate-14/) | Web | Intermediate | ✅ solved |
 | 15 | [Mailroom](ctfs/web-intermediate-15/) | Web | Intermediate | ✅ solved |
 | 16 | [Cogwheel CI](ctfs/web-intermediate-16/) | Web | Intermediate | ✅ solved |
 | 17 | [Loglet](ctfs/web-intermediate-17/) | Web | Intermediate | ⬜ open |
