@@ -1,0 +1,6 @@
+services:
+  gridlock:
+    build: .
+    ports:
+      - "8098:5000"
+    container_name: gridlock-ctf
