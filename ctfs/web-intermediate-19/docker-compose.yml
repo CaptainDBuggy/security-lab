@@ -1,0 +1,6 @@
+services:
+  vaultline:
+    build: .
+    ports:
+      - "8096:5000"
+    container_name: vaultline-ctf
