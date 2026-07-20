@@ -31,7 +31,8 @@ My offensive-security learning journey — methodology notes and hands-on CTF ch
 | 16 | [Cogwheel CI](ctfs/web-intermediate-16/) | Web | Intermediate | ✅ solved |
 | 17 | [Loglet](ctfs/web-intermediate-17/) | Web | Intermediate | ✅ solved |
 | 18 | [Archivex](ctfs/web-intermediate-18/) | Web | Intermediate | ✅ solved |
-| 19 | [Vaultline](ctfs/web-intermediate-19/) | Web | Intermediate | ⬜ open |
+| 19 | [Vaultline](ctfs/web-intermediate-19/) | Web | Intermediate | ✅ solved |
+| 20 | [Patchwork](ctfs/web-advanced-20/) | Web | Advanced | ⬜ open |
 
 Outside challenges (boxes from elsewhere) live under
 [`ctfs/outside-challenges/`](ctfs/outside-challenges/).
