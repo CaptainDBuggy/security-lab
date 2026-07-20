@@ -1,0 +1,14 @@
+name: archivex-ctf
+
+services:
+  archivex:
+    build: .
+    image: ctf-web-18
+    container_name: archivex-ctf
+    ports:
+      - "8095:5000"
+    restart: "no"
+    labels:
+      com.ctf.name: "Archivex Intermediate Web CTF"
+      com.ctf.difficulty: "intermediate"
+      com.ctf.url: "http://localhost:8095"
