@@ -1,0 +1,6 @@
+services:
+  patchwork:
+    build: .
+    ports:
+      - "8097:5000"
+    container_name: patchwork-ctf
