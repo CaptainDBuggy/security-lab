@@ -1,0 +1,6 @@
+services:
+  dataroom:
+    build: .
+    ports:
+      - "8099:5000"
+    container_name: dataroom-ctf
