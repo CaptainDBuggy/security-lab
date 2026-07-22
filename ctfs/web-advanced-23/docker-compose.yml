@@ -1,0 +1,6 @@
+services:
+  mint:
+    build: .
+    container_name: mint-ctf
+    ports:
+      - "8100:5000"

@@ -33,7 +33,9 @@ My offensive-security learning journey — methodology notes and hands-on CTF ch
 | 18 | [Archivex](ctfs/web-intermediate-18/) | Web | Intermediate | ✅ solved |
 | 19 | [Vaultline](ctfs/web-intermediate-19/) | Web | Intermediate | ✅ solved |
 | 20 | [Patchwork](ctfs/web-advanced-20/) | Web | Advanced | ✅ solved |
-| 21 | [Gridlock](ctfs/web-advanced-21/) | Web | Advanced | ⬜ open |
+| 21 | [Gridlock](ctfs/web-advanced-21/) | Web | Advanced | ✅ solved |
+| 22 | [Dataroom](ctfs/web-advanced-22/) | Web | Advanced | ⬜ open |
+| 23 | [Mint](ctfs/web-advanced-23/) | Web | Advanced | ✅ solved |
 
 Outside challenges (boxes from elsewhere) live under
 [`ctfs/outside-challenges/`](ctfs/outside-challenges/).
